@@ -22,3 +22,21 @@ section label
 {
 
 }
+
+/* --- savings-goal-view  --- begin --------------------------*/
+
+#savings-goal-view { 
+	margin: 5px 0;
+	width: 360px;
+}
+
+#savings-goal-view label { 
+    display: inline-block;
+    line-height: 22px;
+    margin: 2px 0;
+    text-align: right;
+    width: 200px;
+}
+
+/* --- savings-goal-view  --- end ----------------------------*/
+
