@@ -71,6 +71,12 @@ sgs.model.savingsgoal.initializeViewModel = function (pageSettings) {
 		return result;
 	}, viewModel);
 	
+	viewModel.savingsTargetPerMonthFormatted = ko.dependentObservable(function() {
+		var result = this.savingsTargetPerMonth();
+		var formattedResult = accounting.formatMoney(result, "$", 2, ",", ".");  ;
+		return formattedResult;
+	}, viewModel);
+
 	return viewModel;
 }
 

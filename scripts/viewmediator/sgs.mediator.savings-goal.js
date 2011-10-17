@@ -12,7 +12,7 @@ sgs.mediator.savingsgoal.createViewMediator = function (pageSettings, pageViewMo
 	// Declare the HTML element-level data bindings
 	$("#savings-goal-amount")			.attr("data-bind","value: savingsGoalAmount");
 	$("#savings-max-duration")		.attr("data-bind","value: savingsMaxDuration");
-	$("#savings-target-per-month")	.attr("data-bind","text: savingsTargetPerMonth()");
+	$("#savings-target-per-month")	.attr("data-bind","text: savingsTargetPerMonthFormatted()");
 	
 	// Apply masking to the savings goal amount and max duration input fields 
     viewModel.savingsGoalAmountMask.attach($("#savings-goal-amount")[0]);
