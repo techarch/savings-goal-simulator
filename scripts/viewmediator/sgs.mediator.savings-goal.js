@@ -18,6 +18,12 @@ sgs.mediator.savingsgoal.createViewMediator = function (pageSettings, pageViewMo
     viewModel.savingsGoalAmountMask.attach($("#savings-goal-amount")[0]);
     viewModel.savingsMaxDurationMask.attach($("#savings-max-duration")[0]);
 
+	// Subscribe to interesting value model changes
+	viewModel.savingsTargetPerMonthFormatted.subscribe(function() {
+		$("#savings-target-per-month")
+			.effect('highlight', { color: 'LightGreen' }, 3000); // for 3 seconds
+	});
+	
 	// Ask KnockoutJS to data-bind the view model to the view
 	var viewNode = $('#savings-goal-view')[0];
 	ko.applyBindings(viewModel, viewNode);
