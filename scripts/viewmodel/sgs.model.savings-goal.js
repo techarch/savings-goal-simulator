@@ -13,9 +13,9 @@ sgs.model.savingsgoal.initializeViewModel = function (pageSettings) {
 	var viewModel = {
 		savingsGoalAmountFormatted: ko.observable(""), 
 		savingsGoalAmountMask: new Mask("$#,###", "number"),
-		savingsMaxDuration: ko.observable(6) // months
+		savingsMaxDurationFormatted: ko.observable(""),
+		savingsMaxDurationMask: new Mask("###", "number")
 	};
-	
 	
 	viewModel.savingsGoalAmount = ko.dependentObservable({
 		owner: viewModel,
@@ -39,6 +39,29 @@ sgs.model.savingsgoal.initializeViewModel = function (pageSettings) {
 			return value;
 		}
 	});	
+	
+	viewModel.savingsMaxDuration = ko.dependentObservable({
+		owner: viewModel,
+		read: function () {
+			// Get the current formatted value model
+			var formatted_amt = this.savingsMaxDurationFormatted();
+			
+			// Unformat the value
+			var amt = this.savingsMaxDurationMask.strippedValue;
+			
+			// Convert the result to an integer
+			if (amt.length == 0) { amt = 0 };
+			return parseInt(amt);
+		},
+		write: function (value) {
+			// Format the passed in value using the mask
+			var formatted_value = this.savingsMaxDurationMask.updateFormattedValue(value);
+			
+			// Update the savingsMaxDurationFormatted value model
+			this.savingsMaxDurationFormatted(formatted_value);
+			return value;
+		}
+	});
 	
 	viewModel.savingsTargetPerMonth = ko.dependentObservable(function() {
 		var result = 0;

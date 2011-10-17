@@ -14,8 +14,9 @@ sgs.mediator.savingsgoal.createViewMediator = function (pageSettings, pageViewMo
 	$("#savings-max-duration")		.attr("data-bind","value: savingsMaxDuration");
 	$("#savings-target-per-month")	.attr("data-bind","text: savingsTargetPerMonth()");
 	
-	// Apply masking to the savings goal amount input field
+	// Apply masking to the savings goal amount and max duration input fields 
     viewModel.savingsGoalAmountMask.attach($("#savings-goal-amount")[0]);
+    viewModel.savingsMaxDurationMask.attach($("#savings-max-duration")[0]);
 
 	// Ask KnockoutJS to data-bind the view model to the view
 	var viewNode = $('#savings-goal-view')[0];
@@ -23,6 +24,7 @@ sgs.mediator.savingsgoal.createViewMediator = function (pageSettings, pageViewMo
 
 	// Initialize default for value models linked to masked fields 
 	viewModel.savingsGoalAmount(pageSettings.defaultSavingsGoal || 0);
+	viewModel.savingsMaxDuration(pageSettings.defaultSavingsMaxDuration || 0);
 	
 	// Save the view model
 	sgs.mediator.savingsgoal.setViewModel(viewModel);	
