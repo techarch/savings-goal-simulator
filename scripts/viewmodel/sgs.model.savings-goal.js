@@ -11,9 +11,34 @@ sgs.model.savingsgoal.initializeViewModel = function (pageSettings) {
 	if (typeof(pageSettings) == 'undefined') var pageSettings = { }
 	
 	var viewModel = {
-		savingsGoalAmount: ko.observable(pageSettings.defaultSavingsGoal || 0), // dollars
+		savingsGoalAmountFormatted: ko.observable(""), 
+		savingsGoalAmountMask: new Mask("$#,###", "number"),
 		savingsMaxDuration: ko.observable(6) // months
 	};
+	
+	
+	viewModel.savingsGoalAmount = ko.dependentObservable({
+		owner: viewModel,
+		read: function () {
+			// Get the current formatted value model
+			var formatted_amt = this.savingsGoalAmountFormatted();
+			
+			// Unformat the value
+			var amt = this.savingsGoalAmountMask.strippedValue;
+			
+			// Convert the result to a float
+			if (amt.length == 0) { amt = 0 };
+			return parseFloat(amt);
+		},
+		write: function (value) {
+			// Format the passed in value using the mask
+			var formatted_value = this.savingsGoalAmountMask.updateFormattedValue(value);
+			
+			// Update the savingsGoalAmountFormatted value model
+			this.savingsGoalAmountFormatted(formatted_value);
+			return value;
+		}
+	});	
 	
 	viewModel.savingsTargetPerMonth = ko.dependentObservable(function() {
 		var result = 0;
