@@ -16,6 +16,7 @@ function InitializeApplication() {
 	
 	// Create / launch our view mediator(s)
 	sgs.mediator.savingsgoal.createViewMediator(pageSettings);
+	sgs.mediator.coffeepricing.createViewMediator(pageSettings);
 	sgs.mediator.consumptionscenarios.createViewMediator(pageSettings);
 
 	if (typeof(console) != 'undefined' && console) 
