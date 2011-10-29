@@ -50,6 +50,126 @@
 			<label for="savings-target-per-month">Savings Target Per Month:</label>
 			<span id="savings-target-per-month"  /><br/>
 		</section>
+		
+		<section id='consumption-scenarios-view'>
+			<header>Weekly Coffee Consumption</header>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Coffee Options</th>
+						<th>Current Habits</th>
+						<th>Proposed Change</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr>					
+						<td>Type:</td>
+						<td>
+							<div id="current-drink-type">
+								<input type="radio" id="current-drink-regular"  name="CurrentDrinkType" value="Regular" />
+									<label for="current-drink-regular">Regular</label><br/>
+								<input type="radio" id="current-drink-latte"  name="CurrentDrinkType" value="Latte" />
+									<label for="current-drink-latte">Latte</label><br/>
+								<input type="radio" id="current-drink-espresso"  name="CurrentDrinkType" value="Espresso" />
+									<label for="current-drink-espresso">Espresso</label><br/>
+							</div>
+						</td>
+						<td>
+							<div id="proposed-drink-type">
+								<input type="radio" id="proposed-drink-regular"  name="ProposedDrinkType" value="Regular" />
+									<label for="proposed-drink-regular">Regular</label><br/>
+								<input type="radio" id="proposed-drink-latte"  name="ProposedDrinkType" value="Latte" />
+									<label for="proposed-drink-latte">Latte</label><br/>
+								<input type="radio" id="proposed-drink-espresso"  name="ProposedDrinkType" value="Espresso" />
+									<label for="proposed-drink-espresso">Espresso</label><br/>
+							</div>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Size:</td>
+						<td>
+								<div id="current-drink-size">
+									<input type="radio" id="current-size-tall" 		name="CurrentDrinkSize" value="Tall" />
+										<label for="current-size-tall">Tall</label><br/>
+									<input type="radio" id="current-size-grande" 	name="CurrentDrinkSize" value="Grande" />
+										<label for="current-size-grande">Grande</label><br/>
+									<input type="radio" id="current-size-venti" 	name="CurrentDrinkSize" value="Venti" />
+										<label for="current-size-venti">Venti</label><br/>
+								</div>						
+						</td>
+						<td>
+								<div id="proposed-drink-size">
+									<input type="radio" id="proposed-size-tall" 		name="ProposedDrinkSize" value="Tall" />
+										<label for="proposed-size-tall">Tall</label><br/>
+									<input type="radio" id="proposed-size-grande" 	name="ProposedDrinkSize" value="Grande" />
+										<label for="proposed-size-grande">Grande</label><br/>
+									<input type="radio" id="proposed-size-venti" 	name="ProposedDrinkSize" value="Venti" />
+										<label for="proposed-size-venti">Venti</label><br/>
+								</div>						
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Frequency:</td>
+						<td>
+							<div id="current-drink-frequency">
+								<input type="radio" id="current-frequency-everyday"	name="CurrentDrinkFrequency" value="Everyday" />
+									<label for="current-frequency-everyday">Everyday</label><br/>
+								<input type="radio" id="current-frequency-workdays" name="CurrentDrinkFrequency" value="WorkDays" />
+									<label for="current-frequency-workdays">Mon-Fri</label><br/>
+								<input type="radio" id="current-frequency-other" 		name="CurrentDrinkFrequency" value="Other" />
+									<label for="current-frequency-other">Other:</label>
+									<input type="text" id="current-custom-frequency" name="CurrentCustomFrequency" /><br/>
+							</div>						
+						</td>
+						<td>
+							<div id="proposed-drink-frequency">
+								<input type="radio" id="proposed-frequency-everyday"	name="ProposedDrinkFrequency" value="Everyday" />
+									<label for="proposed-frequency-everyday">Everyday</label><br/>
+								<input type="radio" id="proposed-frequency-workdays" name="ProposedDrinkFrequency" value="WorkDays" />
+									<label for="proposed-frequency-workdays">Mon-Fri</label><br/>
+								<input type="radio" id="proposed-frequency-other" 		name="ProposedDrinkFrequency" value="Other" />
+									<label for="proposed-frequency-other">Other:</label>
+									<input type="text" id="proposed-custom-frequency" name="ProposedCustomFrequency" /><br/>
+							</div>						
+						</td>
+					</tr>
+					
+					<tr>
+						<td><label for="drinks-per-day">Drinks per Day:</label></td>
+						<td>
+								<input type="text" id="current-drinks-per-day" name="CurrentDrinksPerDay" />
+						</td>
+						<td>
+								<input type="text" id="proposed-drinks-per-day" name="ProposedDrinksPerDay" />
+						</td>
+					</tr>
+
+					<tr>
+						<td><label for="cost-per-week">Cost Per Week:</label></td>
+						<td>
+								<div id="current-cost-per-week"></div>
+						</td>
+						<td>
+								<div id="proposed-cost-per-week"></div>
+						</td>
+					</tr>
+
+					<tr>
+						<td><label for="savings-per-week">Savings Per Week:</label></td>
+						<td>
+								&nbsp;
+						</td>
+						<td>
+								<div id="savings-per-week"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
 	</body>
 	
 </html>

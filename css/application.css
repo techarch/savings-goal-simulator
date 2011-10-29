@@ -40,3 +40,26 @@ section label
 
 /* --- savings-goal-view  --- end ----------------------------*/
 
+/* --- coffee-consumption-view --- begin -----------------*/
+
+#consumption-scenarios-view
+{
+	margin: 5px 0;
+	width: 360px;
+} 
+
+#consumption-scenarios-view table
+{
+}
+
+#consumption-scenarios-view table tr
+{
+	vertical-align: top;
+}
+
+#consumption-scenarios-view input
+{
+	width: 30px;
+}
+
+/* --- consumption-scenarios-view --- end -------------------*/
