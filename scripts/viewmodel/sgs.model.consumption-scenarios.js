@@ -32,6 +32,18 @@ sgs.model.consumptionscenarios.initializeViewModel = function (pageSettings) {
 		return result;
 	}, viewModel);
 
+	viewModel.savingsPerWeekFormatted = ko.dependentObservable(function() {
+		var result = this.savingsPerWeek();
+		var formattedResult = accounting.formatMoney(result, "$", 2, ",", ".");  ;
+		return formattedResult;
+	}, viewModel);
+
+	viewModel.savingsPerMonthFormatted = ko.dependentObservable(function() {
+		var result = this.savingsPerMonth();
+		var formattedResult = accounting.formatMoney(result, "$", 2, ",", ".");  ;
+		return formattedResult;
+	}, viewModel);
+	
 	viewModel.pricing.subscribe(function(newPricing) {
 		viewModel.currentConsumption().pricing(newPricing);
 		viewModel.proposedConsumption().pricing(newPricing);

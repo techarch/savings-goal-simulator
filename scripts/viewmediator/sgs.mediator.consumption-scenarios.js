@@ -22,7 +22,7 @@ sgs.mediator.consumptionscenarios.createViewMediator = function (pageSettings) {
 	$("#current-drinks-per-day")
 		.attr("data-bind","value: currentConsumption().drinksPerDay");
 	$("#current-cost-per-week")
-		.attr("data-bind","text: currentConsumption().costPerWeek");
+		.attr("data-bind","text: currentConsumption().costPerWeekFormatted");
 	
 	// Declare the HTML element-level data bindings for the Proposed Change column
 	$("#proposed-drink-type input[type=radio]")
@@ -37,9 +37,9 @@ sgs.mediator.consumptionscenarios.createViewMediator = function (pageSettings) {
 	$("#proposed-drinks-per-day")								 
 		.attr("data-bind","value: proposedConsumption().drinksPerDay");
 	$("#proposed-cost-per-week")
-		.attr("data-bind","text: proposedConsumption().costPerWeek");
+		.attr("data-bind","text: proposedConsumption().costPerWeekFormatted");
 	$("#savings-per-week")
-		.attr("data-bind","text: savingsPerWeek");
+		.attr("data-bind","text: savingsPerWeekFormatted");
 	
 	// Ask KnockoutJS to data-bind the view model to the view
 	var viewNode = $('#consumption-scenarios-view')[0];
@@ -51,6 +51,11 @@ sgs.mediator.consumptionscenarios.createViewMediator = function (pageSettings) {
 	// Set the pricing based on the Coffee Pricing view model
 	var priceList = sgs.mediator.coffeepricing.getViewModel();
 	viewModel.pricing(priceList);
+	
+	viewModel.savingsPerWeekFormatted.subscribe(function() {
+		$("#savings-per-week")
+			.effect('highlight', { color: 'LightGreen' }, 2000); // for 2 seconds
+	});
 	
 	if (typeof(console) != 'undefined' && console) console.info("sgs.mediator.coffeeconsumption ready!");
 }

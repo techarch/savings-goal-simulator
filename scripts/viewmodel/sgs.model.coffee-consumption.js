@@ -59,5 +59,11 @@ sgs.model.coffeeconsumption.initializeViewModel = function (pageSettings, scenar
 		return result;
 	}, viewModel);
 	
+	viewModel.costPerWeekFormatted = ko.dependentObservable(function() {
+		var result = this.costPerWeek();
+		var formattedResult = accounting.formatMoney(result, "$", 2, ",", ".");  ;
+		return formattedResult;
+	}, viewModel);
+		
 	return viewModel;
 }
