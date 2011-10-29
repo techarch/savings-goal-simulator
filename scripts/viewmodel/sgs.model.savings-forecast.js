@@ -23,7 +23,13 @@ sgs.model.savingsforecast.initializeViewModel = function (pageSettings) {
 	}, viewModel);
 
 	viewModel.timeToGoalInMonths = ko.dependentObservable(function() {
-		var timeToGoal = this.savingsGoalAmount() / this.savingsPerMonth();
+		var timeToGoal = 0;
+		var savingsPerMonth = this.savingsPerMonth();
+		var savingsGoalAmount = this.savingsGoalAmount();
+		
+		if (savingsPerMonth != 0) {
+			timeToGoal = savingsGoalAmount / savingsPerMonth;
+		}
 		var result = Math.round(timeToGoal * 10) / 10;
 		return result;
 	}, viewModel);
