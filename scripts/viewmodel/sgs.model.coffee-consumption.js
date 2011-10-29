@@ -11,6 +11,7 @@ sgs.model.coffeeconsumption.initializeViewModel = function (pageSettings, scenar
 	if (typeof(pageSettings) == 'undefined') var pageSettings = { }
 	
 	var viewModel = {
+		pricing: 		ko.observable(null), 
 		scenarioName: 		ko.observable(scenarioName), 
 		drinkType: 			ko.observable("Regular"), 
 		drinkSize: 			ko.observable("Tall"), 
@@ -45,7 +46,16 @@ sgs.model.coffeeconsumption.initializeViewModel = function (pageSettings, scenar
 
 	// Stub implementation to be fully implemented later on
 	viewModel.costPerWeek = ko.dependentObservable(function() {
-		var result = 0;
+		// Get the base price
+		if (this.pricing() == null) {
+			return 0;
+		}
+		
+		var basePrice 	= this.pricing().getCoffeeBeveragePrice(this.drinkType(), this.drinkSize());
+		var dailyCost 	= basePrice * this.drinksPerDay();
+		var weeklyCost	= dailyCost * this.drinkDaysPerWeek();
+		var result 		= Math.round(weeklyCost * 100) / 100;
+
 		return result;
 	}, viewModel);
 	

@@ -14,13 +14,15 @@ sgs.model.consumptionscenarios.initializeViewModel = function (pageSettings) {
 	var proposed 	= sgs.model.coffeeconsumption.initializeViewModel (pageSettings, "Proposed");
 
 	var viewModel = {
+		pricing: 				ko.observable(null), 
 		currentConsumption: 		ko.observable(current),
 		proposedConsumption: 	ko.observable(proposed)
 	};
 	
 	// Stub implementation to be fully implemented later on
 	viewModel.savingsPerWeek = ko.dependentObservable(function() {
-		var result = 0;
+		var costDifference = this.currentConsumption().costPerWeek() - this.proposedConsumption().costPerWeek();
+		var result = Math.round(costDifference * 100) / 100;
 		return result;
 	}, viewModel);
 
@@ -30,5 +32,10 @@ sgs.model.consumptionscenarios.initializeViewModel = function (pageSettings) {
 		return result;
 	}, viewModel);
 
+	viewModel.pricing.subscribe(function(newPricing) {
+		viewModel.currentConsumption().pricing(newPricing);
+		viewModel.proposedConsumption().pricing(newPricing);
+	});
+	
 	return viewModel;
 }

@@ -48,6 +48,10 @@ sgs.mediator.consumptionscenarios.createViewMediator = function (pageSettings) {
 	// Save the view model
 	sgs.mediator.consumptionscenarios.setViewModel(viewModel);	
 
+	// Set the pricing based on the Coffee Pricing view model
+	var priceList = sgs.mediator.coffeepricing.getViewModel();
+	viewModel.pricing(priceList);
+	
 	if (typeof(console) != 'undefined' && console) console.info("sgs.mediator.coffeeconsumption ready!");
 }
 
