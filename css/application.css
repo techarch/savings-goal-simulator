@@ -63,3 +63,27 @@ section label
 }
 
 /* --- consumption-scenarios-view --- end -------------------*/
+
+/* --- savings-forecast-view --- begin -----------------*/
+
+#savings-forecast-view
+{
+	margin: 5px 0;
+	width: 360px;
+} 
+
+#savings-forecast-view label { 
+    display: inline-block;
+    line-height: 22px;
+    margin: 2px 0;
+    text-align: right;
+    width: 200px;
+}
+
+#savings-forecast-view input
+{
+	width: 30px;
+}
+
+/* --- savings-forecast-view --- end -------------------*/
+
