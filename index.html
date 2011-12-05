@@ -11,8 +11,9 @@
 			$LAB
 			.script("http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js").wait()
 			.script("http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js").wait()
-			.script("http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js").wait()
-			.script("scripts/vendor/knockout-1.2.1.debug.js").wait()
+			.script("scripts/vendor/jquery.tmpl.min.js").wait()
+			.script("scripts/vendor/knockout-latest.debug.js").wait()
+			.script("scripts/vendor/jquery.viewloader.js").wait()
 			.script("scripts/vendor/jquery.cookie.js")
 			.script("scripts/vendor/jquery.blockUI.js")
 			.script("scripts/vendor/jquery.hotkeys.js")
@@ -47,17 +48,12 @@
 	</head>
 
 	<body>
-		<section id='savings-goal-view' >
-			<label for="savings-goal-amount">Savings Goal Amount:</label>
-			<input id="savings-goal-amount"  /><br/>
-
-			<label for="savings-max-duration">Savings Max Duration (In Months):</label>
-			<input id="savings-max-duration" maxlength="3" /><br/>
-
-			<label for="savings-target-per-month">Savings Target Per Month:</label>
-			<span id="savings-target-per-month"  /><br/>
-		</section>
-		
+		<script id='savings-goal-view-template'
+				type='text/html'
+				src='scripts/view/index/_savings-goal.view.html' ></script>
+		<div id='savings-goal-view-container'
+				data-bind='template: { name: "savings-goal-view-template" } ' ></div>
+						
 		<section id='consumption-scenarios-view'>
 			<header>Weekly Coffee Consumption</header>
 			
