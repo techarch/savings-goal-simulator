@@ -45,6 +45,9 @@ sgs.mediator.savingsgoal.setupViewDataBindings = function(x, y) {
 		$("#savings-target-per-month")
 			.effect('highlight', { color: 'LightGreen' }, 3000); // for 3 seconds
 	});
+	
+	if (typeof(console) != 'undefined' && console) 
+			console.info("sgs.mediator.setupViewDataBindings done!");
 }
 
 sgs.mediator.savingsgoal.getViewModel = function() {
