@@ -60,17 +60,12 @@
 		<div id='consumption-scenarios-view-container'
 				data-bind='template: { name: "consumption-scenarios-view-template", afterRender: sgs.mediator.consumptionscenarios.setupViewDataBindings } ' ></div>
 		
-		<section id='savings-forecast-view'>
-			<label for="savings-forecast-per-month">Savings Forecast Per Month:</label>
-			<span id="savings-forecast-per-month" ></span><br/>
+		<script id='savings-forecast-view-template'
+				type='text/html'
+				src='scripts/view/index/_savings-forecast.view.html' ></script>
+		<div id='savings-forecast-view-container'
+				data-bind='template: { name: "savings-forecast-view-template", afterRender: sgs.mediator.savingsforecast.setupViewDataBindings } ' ></div>
 
-			<label for="forecast-variance-per-month">Forecast Variance:</label>
-			<span id="forecast-variance-per-month"></span><br/>
-
-			<label for="time-to-goal-in-months">Months To Savings Goal:</label>
-			<span id="time-to-goal-in-months"></span><br/>
-		</section>
-		
 	</body>
 	
 </html>
