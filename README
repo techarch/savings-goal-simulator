@@ -1,9 +1,0 @@
- Savings Goal Simulator
- =================
- 
- This application servers as an illustration for the tutorial series "Creating Rich Interactive Web Apps With KnockOut.js".
- The simulator helps us figuring out how we can tweak our coffee consumption habits to save a given amount of money over a period of time.
- 
- * Part 1 introduces the concepts - see http://blog.monnet-usa.com/?p=354
- * Part 2 starts the basic foundation for the application - see http://blog.monnet-usa.com/?p=368
- * Part 3 expands the application significantly (hierarchical view models, custom subscriptions, multi-attributes data-bind declarations, etc.) - see http://blog.monnet-usa.com/?p=404
